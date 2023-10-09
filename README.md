@@ -21,8 +21,10 @@ $$
 Say then $C = -\ln(0.9999)$ just for simplicity, then the boundaries will be
 
 $$
-x_{\max} = x_{0} + \sigma_{x}\sqrt{2\sqrt{C}} \\
-x_{\min} = x_{0} - \sigma_{x}\sqrt{2\sqrt{C}} \\
+x_{\max} = x_{0} + \sigma_{x}\sqrt{2\sqrt{C}} 
+$$
+$$
+x_{\min} = x_{0} - \sigma_{x}\sqrt{2\sqrt{C}} 
 $$
 
 It is worth mentioning that you can vary the steepness of each axis by changing the $P$ value at each corresponding term.
