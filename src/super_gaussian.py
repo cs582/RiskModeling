@@ -2,11 +2,10 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 class SuperGaussianDistribution1D:
-    def __init__(self, xlims, x_pow, x_std, coef):
+    def __init__(self, xlims, x_pow, coef):
         self.coef = coef
         self.x_pow = x_pow
         self.xlims = xlims
-        self.x_std = x_std
         self.x_mean = sum(xlims) / 2
 
     def plot_gaussian(self, ax=None):
@@ -19,14 +18,15 @@ class SuperGaussianDistribution1D:
         # Figure plot
         if ax is None:
             plt.figure(figsize=(12, 7))
-            plt.title(f"Super Gaussian\nrange={self.xlims}\nP={self.x_pow}\nStd={self.x_std}")
+            plt.title(f"Super Gaussian\nrange={self.xlims}\nP={self.x_pow}")
             plt.plot(x, self.predict(x))
             plt.show()
         else:
-            ax.set_title(f"Super Gaussian\nrange={self.xlims}\nP={self.x_pow}\nStd={self.x_std}")
+            ax.set_title(f"Super Gaussian\nrange={self.xlims}\nP={self.x_pow}")
             ax.plot(x, self.predict(x))
 
     def predict(self, x):
+        self.x_std = (max(self.xlims)-self.x_mean) / np.power(-np.log(0.5), self.x_pow)
         return self.coef * np.exp( - np.power( np.power( (x - self.x_mean) / self.x_std, 2 ) / 2, self.x_pow ) )
 
 
@@ -56,16 +56,16 @@ class SuperGaussianDistribution3D:
         self.zmin, self.zmax = zlims
 
         self.x_range = (self.xmax - self.xmin)
-        self.x_std = 3 * self.x_range / 5
-        self.x_pow = 5
+        self.x_pow = 2
+        self.x_std = (self.xmax-self.x_middle) / np.power(-np.log(0.5), self.x_pow)
 
         self.y_range = (self.ymax - self.ymin)
-        self.y_std = 3 * self.y_range / 5
-        self.y_pow = 5
+        self.y_pow = 2
+        self.y_std = (self.ymax-self.y_middle) / np.power(-np.log(0.5), self.y_pow)
 
         self.z_range = (self.zmax - self.zmin)
-        self.z_std = 3 * self.z_range / 5
-        self.z_pow = 5
+        self.z_pow = 2
+        self.z_std = (self.zmax-self.z_middle) / np.power(-np.log(0.5), self.z_pow)
 
         self.shape = shape
 
