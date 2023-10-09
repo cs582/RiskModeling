@@ -55,17 +55,22 @@ class SuperGaussianDistribution3D:
         self.ymin, self.ymax = ylims
         self.zmin, self.zmax = zlims
 
+        constant = -np.log(0.95)
+
         self.x_range = (self.xmax - self.xmin)
         self.x_pow = 2
-        self.x_std = (self.xmax-self.x_middle) / np.power(-np.log(0.5), self.x_pow)
+        # self.x_std = (self.xmax - self.x_middle) / np.power(-np.log(0.5), 1/self.x_pow)
+        self.x_std = (self.xmax-self.x_middle) / np.power(2 * np.sqrt(constant), 1/self.x_pow)
 
         self.y_range = (self.ymax - self.ymin)
         self.y_pow = 2
-        self.y_std = (self.ymax-self.y_middle) / np.power(-np.log(0.5), self.y_pow)
+        # self.y_std = (self.ymax - self.y_middle) / np.power(-np.log(0.5), 1/self.y_pow)
+        self.y_std = (self.ymax-self.y_middle) / np.power(2 * np.sqrt(constant), 1/self.y_pow)
 
         self.z_range = (self.zmax - self.zmin)
         self.z_pow = 2
-        self.z_std = (self.zmax-self.z_middle) / np.power(-np.log(0.5), self.z_pow)
+        # self.z_std = (self.zmax - self.z_middle) / np.power(-np.log(0.5), 1/self.z_pow)
+        self.z_std = (self.zmax-self.z_middle) / np.power(2 * np.sqrt(constant), 1/self.z_pow)
 
         self.shape = shape
 
