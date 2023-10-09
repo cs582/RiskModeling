@@ -13,20 +13,22 @@ class SuperGaussianDistribution1D:
         x0, xf = self.xlims
         x_range = xf - x0
         steps = 1000
-        x = np.linspace(x0-x_range, xf+x_range, steps)
+        x = np.linspace(x0-5*x_range, xf+5*x_range, steps)
 
         # Figure plot
         if ax is None:
             plt.figure(figsize=(12, 7))
             plt.title(f"Super Gaussian\nrange={self.xlims}\nP={self.x_pow}")
             plt.plot(x, self.predict(x))
+            plt.vlines([x0, xf], ymin=0, ymax=self.coef, colors='r')
             plt.show()
         else:
             ax.set_title(f"Super Gaussian\nrange={self.xlims}\nP={self.x_pow}")
             ax.plot(x, self.predict(x))
+            ax.vlines([x0, xf], ymin=0, ymax=self.coef, colors='r')
 
     def predict(self, x):
-        self.x_std = (max(self.xlims)-self.x_mean) / np.power(-np.log(0.5), self.x_pow)
+        self.x_std = (max(self.xlims)-self.x_mean) / np.power(-2*np.log(0.95), 1/self.x_pow)
         return self.coef * np.exp( - np.power( np.power( (x - self.x_mean) / self.x_std, 2 ) / 2, self.x_pow ) )
 
 
