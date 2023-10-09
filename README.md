@@ -6,7 +6,7 @@ On a single dimension you can define a range (A, B). All this region from A to B
 
 This figure shows a test on 1 dimension.
 
-![1-dimensional-test](tmp/figures/test.png)
+![1-dimensional-test](tmp/figures/sg_1d_test.png)
 
 The following shows a test on 3 dimensions looking at several slices of the 3rd dimension.
 

@@ -27,4 +27,4 @@ if __name__ == '__main__':
                 model.plot_gaussian(ax=ax[idx % n_rows][idx // n_rows])
                 idx += 1
 
-    plt.savefig("tmp/figures/test.png")
+    plt.savefig("tmp/figures/sg_1d_test.png")
