@@ -11,7 +11,7 @@ if __name__ == '__main__':
     n_plots = len(x_pows) * len(x_stds) * len(coefs)
 
     n_cols = 3
-    n_rows = (n_plots // n_cols) + 1
+    n_rows = (n_plots // n_cols)
 
     figsize = (n_rows*7, n_cols*7)
     fig, ax = plt.subplots(n_rows, n_cols, figsize=figsize)
