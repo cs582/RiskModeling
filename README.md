@@ -5,7 +5,7 @@ A Super Gaussian is a top-flattened gaussian distribution.
 This is its formula
 
 $$
-f(x, y, z) = \exp(-\frac{1}{2} \left( \left(\frac{x - x_{0}}{\sigma_{x}}\right)^{P} + \left(\frac{y - y_{0}}{\sigma_{y}}\right)^{P} + \left(\frac{z - z_{0}}{\sigma_{z}}\right)^{P} \right) )
+f(x, y, z) = \exp\left( \left( \left(\frac{1}{2}\left(\frac{x - x_{0}}{\sigma_{x}}\right)^{2}\right)^{P} + \left(\frac{1}{2}\left(\frac{y - y_{0}}{\sigma_{y}}\right)^{2}\right)^{P} + \left(\frac{1}{2}\left(\frac{z - z_{0}}{\sigma_{z}}\right)^{2}\right)^{P} \right) \right)
 $$
 
 On a single dimension you can define a range (A, B). All this region from A to B will be flattened and valuing at 100% and will decrease immediately after.
